@@ -10,17 +10,13 @@ ActiveRecord::Base.establish_connection(
 )
 
 class Employee < ActiveRecord::Base
-  has_many :courses
+  has_many :course
 
   self.primary_key = :id
-
-  def monthly_salary
-    salary / 12.0
-  end
 end
 
 class Course < ActiveRecord::Base
-  self.primary_key = :name
+  self.primary_key = :id
 
   belongs_to :employee
 end
@@ -78,6 +74,7 @@ end
 
 get '/edit_course' do
   @course = Course.find(params["id"])
+  @employees = Employee.all
 
   erb :edit_course
 end
