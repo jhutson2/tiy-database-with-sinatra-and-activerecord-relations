@@ -53,6 +53,14 @@
         <li class="list-group-item"><%= @employee.slack %></li>
         <li class="list-group-item"><%= @employee.github %></li>
       </ul>
+
+      Courses:
+
+      <ul class="list-group">
+        <% employee.course.each do |course| %>
+        <li class= "list-group-item"><%= course.name %></li>
+        <% end %>
+      </ul>
       <a href="/edit_employee?id=<%= @employee.id %>" class="btn btn-primary">Edit Employee</a>
     </div>
 

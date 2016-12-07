@@ -10,6 +10,8 @@ ActiveRecord::Base.establish_connection(
 )
 
 class Employee < ActiveRecord::Base
+  has_many :courses
+
   self.primary_key = :id
 
   def monthly_salary
@@ -19,6 +21,8 @@ end
 
 class Course < ActiveRecord::Base
   self.primary_key = :name
+
+  belongs_to :employee
 end
 after do
   ActiveRecord::Base.connection.close
